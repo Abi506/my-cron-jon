@@ -9,6 +9,10 @@ jobs:
   call-endpoint:
     runs-on: ubuntu-latest
     steps:
-      - name: Call my endpoint
+      - name: Call my endpoint with POST
         run: |
-          curl -s https://node-cron-test-atzq.onrender.com/deepseek
+          curl -X POST https://node-cron-test-atzq.onrender.com/deepseek \
+          -H "Content-Type: application/json" \
+          -d '{
+            "content": "You are an AI assistant that generates bite-sized inspirational lessons  books:think and grow rich.Task: Convert this passage into a short, inspiring story or idea in 2–3 sentences.- Make it easy to understand and actionable.- Keep it motivational and positive.- Do NOT combine multiple books or ideas.- Output only the 5-7 sentence lesson. and give it like a short story.Select any random chapter and give it like a story.and also mention from which chapter and in that what was the problem and how he overcome the problem and a short quote.the story should be atleast 40lines"
+          }'
