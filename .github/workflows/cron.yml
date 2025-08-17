@@ -1,0 +1,14 @@
+name: Call Cron Endpoint
+
+on:
+  schedule:
+    - cron: "* * * * *"  # Every 1 minute
+  workflow_dispatch:  # Allows manual trigger too
+
+jobs:
+  call-endpoint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call my endpoint
+        run: |
+          curl -s https://node-cron-test-atzq.onrender.com/deepseek
